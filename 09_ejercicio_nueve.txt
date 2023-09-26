@@ -1,0 +1,11 @@
+	Con la sentencia break, podemos terminar la ejecución de un loop, sea este
+select, for o while y así pasamos directamente a la ejecución de la línea que sigue
+inmediatamente al loop.
+	El parámetro que se le puede pasar es interpretado como un número, e implica la terminación
+del loop luego de n vueltas.
+	Si hay varios loops anidados, el break únicamente afecta al más inmediato
+
+
+	*Continue* es una sentencia que hace que el resto del código del loop se ignore,
+pasando a la siguiente iteración, y así sucesivamente. Es decir, continue no termina el loop, pero sí evita la ejecución de todo el código que siga a su invocación.
+	Se le puede proveer un argumento que anula su efecto luego de n vueltas.

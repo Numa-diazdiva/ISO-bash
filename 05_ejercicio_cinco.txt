@@ -1,0 +1,5 @@
+5) Como se puede ver en el script anterior, el comando exit es el encargado de terminar
+la ejecución del script, seteando a su vez el estado de terminación de dicho script con
+el valor que reciba como parámetro -por defecto 0, si no se le provee parámetro-.
+Se asume que el valor 0 indica una terminación exitosa, siendo el resto de los valores
+posibles (1-255) posibles códigos de error.
