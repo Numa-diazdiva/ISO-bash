@@ -1,20 +1,24 @@
 #!/bin/bash
 
+# Debería poder recuperar la información de usuarios del archivo passwd
+
 if [ $# -ne 1 ]; then
     echo "Se ingresó un número incorrecto de parámetros. Se debe ingresar 1 parámetro <extensión>"
     exit 1
 fi
 
 extension=$1
-extensiones=$(ls | cut -d "." -f2)
-cant_archivos=0
+data_usuarios=$(cat /etc/passwd | cut -d ":" -f 1,6)
+echo -n > reporte.txt # Inicio el archivo sin nada por si ya existía
 
-for extension_actual in $extensiones
-do
-    if [ $extension_actual == $extension ]; then
-        cant_archivos=$(expr $cant_archivos + 1)
+for usuario in $data_usuarios; do
+    usr=$(echo $usuario | cut -d: -f1)
+    home_dir=$(echo $usuario | cut -d: -f2)
+   
+    echo $usr $home_dir 
+    # Checamos que no tenga un directorio que no existe (pasa con algunos users sin home)
+    if [ -d $home_dir ]; then
+        echo $usr $(find "$home_dir" -name "*.$1" | wc -l) >> reporte.txt
     fi
 done
-
-echo "$(whoami) : $cant_archivos" > "reporte.txt"
 exit 0
