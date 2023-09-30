@@ -1,3 +1,4 @@
 Repasar alcance de variables
 Consultar manejo de echo con ""
 Chequeos guardas en ejercicio 25
+Retorno de errores desde las funciones
